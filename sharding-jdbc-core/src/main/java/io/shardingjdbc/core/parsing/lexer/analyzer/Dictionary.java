@@ -26,6 +26,8 @@ import java.util.Map;
 
 /**
  * Token dictionary.
+ * 
+ * 关键字典
  *
  * @author zhangliang
  */

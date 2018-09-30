@@ -91,10 +91,23 @@ public final class Tokenizer {
         return offset;
     }
     
+    /**
+     * 是否单行注释开始
+     * 
+     * @param ch
+     * @param next
+     * @return
+     */
     private boolean isSingleLineCommentBegin(final char ch, final char next) {
         return '/' == ch && '/' == next || '-' == ch && '-' == next;
     }
     
+    /**
+     * 跳过单行注释
+     * 
+     * @param commentSymbolLength
+     * @return
+     */
     private int skipSingleLineComment(final int commentSymbolLength) {
         int length = commentSymbolLength;
         while (!CharType.isEndOfInput(charAt(offset + length)) && '\n' != charAt(offset + length)) {
@@ -103,10 +116,22 @@ public final class Tokenizer {
         return offset + length + 1;
     }
     
+    /**
+     * 是否多行注释开始
+     * 
+     * @param ch
+     * @param next
+     * @return
+     */
     private boolean isMultipleLineCommentBegin(final char ch, final char next) {
         return '/' == ch && '*' == next;
     }
     
+    /**
+     * 跳过多行注释
+     * 
+     * @return
+     */
     private int skipMultiLineComment() {
         return untilCommentAndHintTerminateSign(COMMENT_BEGIN_SYMBOL_LENGTH);
     }

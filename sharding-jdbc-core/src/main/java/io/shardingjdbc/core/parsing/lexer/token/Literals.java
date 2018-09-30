@@ -18,12 +18,19 @@
 package io.shardingjdbc.core.parsing.lexer.token;
 
 /**
- * Literals token.
- * 字面量
+ * Literals token. 字面量
  *
  * @author zhangliang
  */
 public enum Literals implements TokenType {
-    
-    INT, FLOAT, HEX, CHARS, IDENTIFIER, VARIABLE
+
+	/**
+	 * IDENTIFIER ：标识符(关键字+表名、列名、别名等)
+	 * VARIABLE ：变量 
+	 * CHARS ：字符串 
+	 * HEX ：十六进制  
+	 * INT ：整数 
+	 * FLOAT ：浮点数
+	 */
+	INT, FLOAT, HEX, CHARS, IDENTIFIER, VARIABLE
 }

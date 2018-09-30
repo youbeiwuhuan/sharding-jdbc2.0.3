@@ -60,6 +60,10 @@ public class Lexer {
      * Analyse next token.
      */
     public final void nextToken() {
+    	/**
+    	 * 使用 #skipIgnoredToken() 方法跳过忽略的 Token，
+    	 * 通过 #isXXXX() 方法判断好下一个 Token 的类型后，交给 Tokenizer 进行分词返回 Token
+    	 */
         skipIgnoredToken();
         if (isVariableBegin()) {// 变量
             currentToken = new Tokenizer(input, dictionary, offset).scanVariable();
